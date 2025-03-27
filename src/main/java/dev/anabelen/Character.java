@@ -6,7 +6,6 @@ public class Character {
     private boolean isAlive;
     private int attackRange;
     private CharacterType type;
-    public Object getHealth;
 
     public enum CharacterType {
         MELEE,
