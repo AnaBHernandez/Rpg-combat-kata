@@ -1,0 +1,28 @@
+# Archivos de compilación Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Directorio del IDE IntelliJ IDEA
+.idea/
+
+# Directorio del IDE Eclipse
+.settings/
+.classpath
+.project
+
+# Directorio de compilación de Maven
+target/
+
+# Directorio de compilación de Gradle
+build/
+
+# Archivos de caché del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Otros archivos temporales
+*.log
+*.tmp
+*.swp
