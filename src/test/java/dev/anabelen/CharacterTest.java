@@ -40,4 +40,13 @@ public class CharacterTest {
 
         assertEquals(700, lowLevel.getHealth());
     }
+
+    @Test
+    public void testDealDamage_DamageReducedWhenTargetHigherLevel() {
+        Character highLevel = new Character(Character.CharacterType.MELEE, 10);
+        Character lowLevel = new Character(Character.CharacterType.MELEE, 1);
+        lowLevel.dealDamage(highLevel, 200, 1);
+        assertEquals(900, highLevel.getHealth());
+    }
+}
 }
