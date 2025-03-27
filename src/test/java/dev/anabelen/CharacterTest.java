@@ -48,5 +48,14 @@ public class CharacterTest {
         lowLevel.dealDamage(highLevel, 200, 1);
         assertEquals(900, highLevel.getHealth());
     }
+
+    @Test
+    public void testDealDamage_SameFaction() {
+        Character warrior1 = new Character(Character.CharacterType.MELEE, 1);
+        Character warrior2 = new Character(Character.CharacterType.MELEE, 1);
+        warrior1.joinFaction("Red");
+        warrior2.joinFaction("Red");
+        warrior1.dealDamage(warrior2, 200, 1);
+        assertEquals(1000, warrior2.getHealth());
 }
 

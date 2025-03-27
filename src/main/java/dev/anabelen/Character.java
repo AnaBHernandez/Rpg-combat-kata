@@ -56,4 +56,6 @@ public class Character {
         target.receivesDamage(modifiedDamage);
         System.out.println("Salud objetivo después del ataque: " + target.getHealth());
     }
+
+
 }
