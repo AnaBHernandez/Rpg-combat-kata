@@ -24,6 +24,7 @@ public class Character {
 
     public void joinFaction(String faction) {
         this.faction = faction;
+    }
 
     public int getHealth() {
         return health;
