@@ -56,6 +56,6 @@ public class CharacterTest {
     warrior1.joinFaction("Red");
     warrior2.joinFaction("Red");
     warrior1.dealDamage(warrior2, 200, 1);
-    assertEquals(1000, warrior2.getHealth()); // Debería pasar
+    assertEquals(1000, warrior2.getHealth());
 }
 }

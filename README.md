@@ -1,6 +1,13 @@
 # Proyecto Character (Kata TDD)
 
-Este proyecto implementa una clase `Character` para representar personajes en un juego, siguiendo el proceso de Desarrollo Guiado por Pruebas (TDD).
+Este proyecto es un juego de rol en el que los personajes pueden infligir daño a otros, teniendo en cuenta su nivel y facción. Se implementan mecánicas como reducción de daño basada en el nivel y restricciones para dañar a aliados.
+
+## Características
+
+- **Sistema de Daño**: Los personajes pueden infligir daño a otros, con lógica para reducir el daño si el objetivo tiene un nivel más alto.
+- **Facciones**: Los personajes pueden pertenecer a facciones, lo que impide que dañen a sus aliados.
+- **Pruebas Unitarias**: Se incluyen pruebas para asegurar que las mecánicas funcionan correctamente.
+
 
 ## Funcionalidades
 

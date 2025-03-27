@@ -19,29 +19,28 @@ public class Character {
         this.isAlive = true;
         this.type = type;
         this.attackRange = (type == CharacterType.MELEE) ? 2 : 20;
-        this.faction = null; // Inicializa la facción como null
+        this.faction = null;
     }
 
     public void joinFaction(String faction) {
-        this.faction = faction; // Asigna la facción al personaje
-    }
+        this.faction = faction;
 
     public int getHealth() {
-        return health; // Devuelve la salud actual
+        return health;
     }
 
     private void receivesDamage(int damage) {
-        this.health = Math.max(0, this.health - damage); // Reduce la salud
+        this.health = Math.max(0, this.health - damage);
         if (this.health == 0) {
-            this.isAlive = false; // Marca el personaje como muerto si la salud es 0
+            this.isAlive = false;
         }
     }
 
     public void dealDamage(Character target, int damage, int distance) {
-        // Verifica si el objetivo es válido para causar daño
+
         if (target == null || damage <= 0 || distance > this.attackRange || target == this ||
             (this.faction != null && this.faction.equals(target.faction)) || !this.isAlive) {
-            return; // No se puede dañar a un aliado o a uno mismo o si está muerto
+            return;
         }
 
         int modifiedDamage = damage;
@@ -52,16 +51,16 @@ public class Character {
         System.out.println("Daño original: " + damage);
 
         if (levelDifference >= 5) {
-            modifiedDamage = (int) (damage * 1.5); // Aumenta el daño si el atacante es significativamente más fuerte
+            modifiedDamage = (int) (damage * 1.5);
             System.out.println("Daño modificado (aumentado): " + modifiedDamage);
         } else if (levelDifference <= -5) {
-            modifiedDamage = (int) (damage * 0.5); // Reduce el daño si el objetivo es significativamente más fuerte
+            modifiedDamage = (int) (damage * 0.5);
             System.out.println("Daño modificado (reducido): " + modifiedDamage);
         } else {
             System.out.println("Daño modificado: " + modifiedDamage);
         }
 
-        target.receivesDamage(modifiedDamage); // Aplica el daño al objetivo
+        target.receivesDamage(modifiedDamage);
         System.out.println("Salud objetivo después del ataque: " + target.getHealth());
     }
 }
