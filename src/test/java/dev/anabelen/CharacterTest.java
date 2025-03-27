@@ -18,7 +18,7 @@ public class CharacterTest {
         Character warrior = new Character(Character.CharacterType.MELEE);
         Character archer = new Character(Character.CharacterType.RANGED);
         warrior.dealDamage(archer, 200, 1);
-        assertEquals(800, archer.get.Health());
+        assertEquals(800, archer.getHealth());
 
 
     }
