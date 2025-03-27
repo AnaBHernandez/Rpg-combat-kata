@@ -27,4 +27,12 @@ public class CharacterTest {
         warrior.dealDamage(warrior, 200, 1);
         assertEquals(1000, warrior.getHealth());
     }
+
+    @Test
+    public void testDealDamage_DamageIncreasedWhenTargetLowerLevel() {
+    Character highLevel = new Character(Character.CharacterType.MELEE, 10);
+    Character lowLevel = new Character(Character.CharacterType.MELEE, 1);
+    highLevel.dealDamage(lowLevel, 200, 1);
+    assertEquals(700, lowLevel.getHealth());
+}
 }
