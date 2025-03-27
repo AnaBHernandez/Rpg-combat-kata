@@ -46,6 +46,9 @@ public class Character {
         if (levelDifference >= 5) {
             modifiedDamage = (int) (damage * 1.5);
             System.out.println("Daño modificado (aumentado): " + modifiedDamage);
+        } else if (levelDifference <= -5) {
+            modifiedDamage = (int) (damage * 0.5); // Reducción del 50%
+            System.out.println("Daño modificado (reducido): " + modifiedDamage);
         } else {
             System.out.println("Daño modificado: " + modifiedDamage);
         }

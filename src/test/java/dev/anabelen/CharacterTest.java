@@ -49,4 +49,4 @@ public class CharacterTest {
         assertEquals(900, highLevel.getHealth());
     }
 }
-}
+
