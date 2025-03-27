@@ -24,18 +24,17 @@ public class Character {
         return health;
     }
 
-    public void dealDamage(Character target, int damage, int distance) {
-        if (target == null || damage <= 0 || distance > attackRange) {
-            return;
-        }
-        target.receivesDamage(damage);
-}
-
     private void receivesDamage(int damage) {
         this.health = Math.max(0, this.health - damage);
         if(this.health == 0) {
             this.isAlive = false;
         }
-    }
 }
 
+    public void dealDamage(Character target, int damage, int distance) {
+        if (target == null || damage <= 0 || distance > this.attackRange || target == this) {
+            return;
+        }
+        target.receivesDamage(damage);
+    }
+}
