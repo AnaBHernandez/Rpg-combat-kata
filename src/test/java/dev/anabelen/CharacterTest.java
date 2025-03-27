@@ -19,7 +19,12 @@ public class CharacterTest {
         Character archer = new Character(Character.CharacterType.RANGED);
         warrior.dealDamage(archer, 200, 1);
         assertEquals(800, archer.getHealth());
+    }
 
-
+    @Test
+    public void testDealDamage_SelfDamage() {
+        Character warrior = new Character(Character.CharacterType.MELEE);
+        warrior.dealDamage(warrior, 200, 1);
+        assertEquals(1000, warrior.getHealth());
     }
 }
