@@ -1,41 +1,112 @@
-# Proyecto Character (Kata TDD)
+# RPG Combat Kata
 
-Este proyecto es un juego de rol en el que los personajes pueden infligir daño a otros, teniendo en cuenta su nivel y facción. Se implementan mecánicas como reducción de daño basada en el nivel y restricciones para dañar a aliados.
+Este proyecto implementa un sistema de combate para un juego de rol (RPG) siguiendo la metodología TDD (Test-Driven Development). Los personajes pueden infligir daño a otros, considerando su nivel, facción y rango de ataque.
 
-## Características
+## 🎮 Características del Sistema
 
-- **Sistema de Daño**: Los personajes pueden infligir daño a otros, con lógica para reducir el daño si el objetivo tiene un nivel más alto.
-- **Facciones**: Los personajes pueden pertenecer a facciones, lo que impide que dañen a sus aliados.
-- **Pruebas Unitarias**: Se incluyen pruebas para asegurar que las mecánicas funcionan correctamente.
+- **Sistema de Combate**: Los personajes pueden atacar a otros con diferentes tipos (melee/ranged)
+- **Modificadores de Daño**: El daño se modifica según la diferencia de nivel entre atacante y objetivo
+- **Sistema de Facciones**: Los personajes pueden unirse a facciones y no pueden atacar a sus aliados
+- **Rangos de Ataque**: Los personajes melee tienen rango 2, los ranged tienen rango 20
+- **Pruebas Unitarias Completas**: Cobertura completa con JUnit 5
 
+## ⚔️ Mecánicas de Combate
 
-## Funcionalidades
+### Tipos de Personajes
+- **Melee**: Rango de ataque 2 unidades
+- **Ranged**: Rango de ataque 20 unidades
 
-* Creación de personajes con salud inicial, nivel y tipo.
-* Infligir daño a otros personajes.
-* Curar a otros personajes.
+### Modificadores de Daño por Nivel
+- **Atacante 5+ niveles superior**: +50% de daño
+- **Atacante 5+ niveles inferior**: -50% de daño
+- **Diferencia menor a 5 niveles**: Daño normal
 
-## Cómo usar
+### Restricciones de Combate
+- No se puede atacar a sí mismo
+- No se puede atacar a aliados de la misma facción
+- No se puede atacar si el personaje está muerto
+- El daño debe ser mayor a 0
+- El objetivo debe estar dentro del rango de ataque
 
-1.  Clonar el repositorio.
-2.  Abrir el proyecto en tu IDE favorito (IntelliJ IDEA, Eclipse, etc.).
-3.  Ejecutar las pruebas unitarias para verificar la funcionalidad.
+## 🚀 Cómo Ejecutar
 
-## Dependencias
+### Prerrequisitos
+- Java 8 o superior
+- Maven 3.6.3 o superior
 
-* JUnit (para las pruebas unitarias).
+### Instalación
+```bash
+# Clonar el repositorio
+git clone <url-del-repositorio>
+cd Rpg-combat-kata
 
-## Contribución
+# Compilar el proyecto
+mvn compile
 
-Si quieres contribuir a este proyecto, puedes seguir estos pasos:
+# Ejecutar las pruebas
+mvn test
 
-1.  Crear un fork del repositorio.
-2.  Crear una rama para tu funcionalidad.
-3.  Implementar la funcionalidad y escribir pruebas unitarias.
-4.  Enviar un pull request.
+# Generar reporte de cobertura
+mvn jacoco:report
+```
 
-## Licencia
+## 🧪 Pruebas
 
-## Licencia
+El proyecto incluye pruebas unitarias que cubren:
+- ✅ Creación de personajes
+- ✅ Sistema de daño básico
+- ✅ Prevención de auto-daño
+- ✅ Modificadores de daño por nivel
+- ✅ Restricciones de facción
+- ✅ Validaciones de rango de ataque
+
+### Ejecutar Pruebas
+```bash
+mvn test
+```
+
+## 📊 Calidad del Código
+
+- **Cobertura de Código**: JaCoCo configurado
+- **Complejidad Ciclomática**: Límites configurados (clase: 25, método: 8)
+- **Estándares de Código**: Maven Enforcer Plugin
+- **Documentación**: Javadoc configurado
+
+## 🏗️ Arquitectura
+
+### Clase Principal: `Character`
+- **Atributos**: salud, nivel, tipo, facción, rango de ataque
+- **Métodos principales**:
+  - `dealDamage()`: Inflige daño a otro personaje
+  - `joinFaction()`: Une el personaje a una facción
+  - `getHealth()`: Obtiene la salud actual
+
+### Refactoring Implementado
+- ✅ Separación de responsabilidades
+- ✅ Métodos privados para validaciones
+- ✅ Encapsulación mejorada
+- ✅ Eliminación de logging en lógica de negocio
+
+## 🤝 Contribución
+
+Para contribuir al proyecto:
+
+1. Fork del repositorio
+2. Crear una rama para tu funcionalidad (`git checkout -b feature/nueva-funcionalidad`)
+3. Implementar cambios con pruebas unitarias
+4. Ejecutar `mvn test` para verificar que todo funciona
+5. Commit con mensaje descriptivo
+6. Push a tu fork
+7. Crear Pull Request
+
+## 📝 Licencia
 
 Este proyecto está bajo la licencia MIT.
+
+## 🎯 Próximas Funcionalidades
+
+- [ ] Sistema de curación
+- [ ] Objetos y equipamiento
+- [ ] Efectos de estado (veneno, parálisis, etc.)
+- [ ] Sistema de experiencia y subida de nivel
+- [ ] Combate por turnos
